@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Ansh Wadhwa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+color:#111;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:900px;
+height:900px;
+top:-420px;
+right:-280px;
+background:radial-gradient(circle,#00000010 0%,transparent 70%);
+pointer-events:none;
+z-index:-1;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:850px;
+height:850px;
+bottom:-420px;
+left:-280px;
+background:radial-gradient(circle,#00000008 0%,transparent 70%);
+pointer-events:none;
+z-index:-1;
+}
+
+section{
+padding:90px 7%;
+}
+
+.title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.title span{
+font-size:13px;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#666;
+}
+
+.title h1{
+font-size:72px;
+font-weight:900;
+letter-spacing:-3px;
+margin-top:18px;
+}
+
+.title p{
+max-width:860px;
+margin:auto;
+margin-top:25px;
+line-height:1.9;
+font-size:18px;
+color:#666;
+}
+
+/*================ FEATURE VIDEO =================*/
+
+.video-card{
+
+position:relative;
+overflow:hidden;
+border-radius:40px;
+background:#000;
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.08),
+0 60px 120px rgba(0,0,0,.06);
+
+}
+
+.video-card video{
+width:100%;
+display:block;
+aspect-ratio:16/9;
+object-fit:cover;
+}
+
+.video-overlay{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(to top,
+rgba(0,0,0,.82),
+rgba(0,0,0,.30),
+transparent);
+
+display:flex;
+align-items:flex-end;
+
+padding:65px;
+
+}
+
+.project-content{
+max-width:760px;
+color:white;
+}
+
+.badge{
+
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+padding:12px 20px;
+
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(20px);
+
+border-radius:999px;
+
+font-size:13px;
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+.project-content h2{
+font-size:65px;
+line-height:1;
+font-weight:900;
+letter-spacing:-3px;
+margin-bottom:28px;
+}
+
+.project-content p{
+font-size:17px;
+line-height:1.9;
+color:#efefef;
+}
+
+.stack{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:35px;
+}
+
+.stack span{
+padding:11px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.13);
+backdrop-filter:blur(20px);
+font-size:13px;
+font-weight:600;
+}
+
+.buttons{
+display:flex;
+gap:18px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.btn{
+
+padding:17px 35px;
+border-radius:999px;
+text-decoration:none;
+font-weight:700;
+transition:.35s;
+
+}
+
+.black{
+background:#fff;
+color:#111;
+}
+
+.white{
+border:1px solid rgba(255,255,255,.3);
+color:#fff;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.white:hover{
+background:white;
+color:black;
+}
+
+/*================ STATS =================*/
+
+.stats{
+
+margin-top:60px;
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+
+gap:22px;
+
+}
+
+.stat{
+
+background:white;
+padding:35px;
+border-radius:30px;
+
+border:1px solid #ededed;
+
+transition:.35s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.04);
+
+}
+
+.stat:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 25px 55px rgba(0,0,0,.08);
+
+}
+
+.stat h3{
+
+font-size:42px;
+font-weight:900;
+margin-bottom:8px;
+
+}
+
+.stat p{
+
+color:#666;
+line-height:1.7;
+
+}
+
+/*================ DATA ANALYTICS =================*/
+
+.analytics{
+
+padding-top:110px;
+
+}
+
+.section-title{
+
+text-align:center;
+margin-bottom:70px;
+
+}
+
+.section-title span{
+
+font-size:13px;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#777;
+
+}
+
+.section-title h2{
+
+font-size:58px;
+font-weight:900;
+letter-spacing:-2px;
+margin-top:18px;
+
+}
+
+.section-title p{
+
+margin:auto;
+margin-top:20px;
+max-width:760px;
+color:#666;
+font-size:18px;
+line-height:1.8;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+
+}
+
+.card{
+
+background:white;
+border-radius:34px;
+
+padding:38px;
+
+border:1px solid #ececec;
+
+transition:.45s;
+
+position:relative;
+overflow:hidden;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.04);
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+width:280px;
+height:280px;
+
+right:-100px;
+top:-120px;
+
+background:radial-gradient(circle,#00000008,transparent);
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:
+0 30px 60px rgba(0,0,0,.08);
+
+}
+
+.featured{
+
+background:linear-gradient(180deg,#ffffff,#fafafa);
+
+border:2px solid #111;
+
+transform:scale(1.03);
+
+}
+
+.top{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+
+}
+
+.label{
+
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
+color:#777;
+text-transform:uppercase;
+
+}
+
+.star{
+
+font-size:24px;
+
+}
+
+.card h3{
+
+font-size:34px;
+font-weight:900;
+letter-spacing:-1px;
+margin-bottom:18px;
+
+}
+
+.card p{
+
+font-size:16px;
+color:#666;
+line-height:1.9;
+margin-bottom:28px;
+
+}
+
+.tags{
+
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:30px;
+
+}
+
+.tags span{
+
+padding:10px 16px;
+
+border-radius:999px;
+
+background:#f4f4f4;
+
+font-size:12px;
+font-weight:700;
+
+}
+
+.card a{
+
+display:inline-block;
+
+padding:15px 28px;
+
+background:#111;
+color:white;
+
+text-decoration:none;
+
+border-radius:999px;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+.card a:hover{
+
+transform:translateY(-3px);
+
+}
+
+/*================ RESPONSIVE =================*/
+
+@media(max-width:1100px){
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.featured{
+
+transform:none;
+
+}
+
+.project-content h2{
+
+font-size:50px;
+
+}
+
+}
+
+@media(max-width:760px){
+
+.title h1{
+
+font-size:46px;
+
+}
+
+.project-content h2{
+
+font-size:38px;
+
+}
+
+.video-overlay{
+
+padding:28px;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.section-title h2{
+
+font-size:42px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section>
+
+<div class="title">
+
+<span>Featured Machine Learning Project</span>
+
+<h1>Diamond Price Prediction</h1>
+
+<p>
+Production-ready Machine Learning application engineered with modular pipelines,
+feature engineering, Flask deployment, Docker containerization and modern MLOps practices.
+</p>
+
+</div>
+
+<div class="video-card">
+
+<video autoplay muted loop controls playsinline>
+
+<source src="{{ url_for('static', filename='video/Diamond_price_prediction.mp4') }}" type="video/mp4">
+
+</video>
+
+<div class="video-overlay">
+
+<div class="project-content">
+
+<div class="badge">
+Featured End-to-End Machine Learning Project
+</div>
+
+<h2>
+Predict Diamond Prices
+with Machine Learning
+</h2>
+
+<p>
+An end-to-end regression system developed using Scikit-Learn, Flask, Docker and modular ML pipelines.
+The application performs automated preprocessing, feature engineering, model inference and instant
+price prediction through an interactive production-ready web interface.
+</p>
+
+<div class="stack">
+
+<span>Python</span>
+<span>Scikit-Learn</span>
+<span>Flask</span>
+<span>Docker</span>
+<span>AWS</span>
+<span>CI/CD</span>
+<span>MLOps</span>
+<span>Regression</span>
+
+</div>
+
+<div class="buttons">
+
+<a href="https://github.com/Anshgallery/Diamond_price_prediction_project" target="_blank" class="btn black">
+GitHub Repository
+</a>
+
+<a href="#" class="btn white">
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>10+</h3>
+<p>Engineered Features</p>
+</div>
+
+<div class="stat">
+<h3>8+</h3>
+<p>Pipeline Components</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Real-Time Prediction Workflow</p>
+</div>
+
+<div class="stat">
+<h3>Docker</h3>
+<p>Containerized Deployment</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="analytics">
+
+<div class="section-title">
+
+<span>Data Analytics Portfolio</span>
+
+<h2>Real World Data Analysis Projects</h2>
+
+<p>
+Business intelligence, customer analytics and large-scale real-world datasets transformed into meaningful insights through Python, SQL and visualization.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card featured">
+
+<div class="top">
+
+<div class="label">
+National Level Analysis
+</div>
+
+<div class="star">
+⭐
+</div>
+
+</div>
+
+<h3>NIFTEM OBL Analysis</h3>
+
+<p>
+Comprehensive exploratory data analysis conducted on real operational datasets collected during the
+National Level Open Business Lab at NIFTEM. The project focused on identifying business trends,
+consumer behaviour, operational patterns and actionable insights through statistical analysis,
+Python automation and interactive visualizations.
+</p>
+
+<div class="tags">
+
+<span>Python</span>
+<span>Pandas</span>
+<span>EDA</span>
+<span>Business Analytics</span>
+<span>Visualization</span>
+<span>Real World Dataset</span>
+
+</div>
+
+<a href="https://github.com/Anshgallery/NIFTEM_OBL_ANALYSIS" target="_blank">
+View Project →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="top">
+
+<div class="label">
+Machine Learning
+</div>
+
+</div>
+
+<h3>ChurnPulse</h3>
+
+<p>
+Customer churn prediction system developed using supervised machine learning algorithms,
+feature engineering and business-focused analytics to identify customers likely to leave.
+The solution enables proactive retention strategies through predictive intelligence.
+</p>
+
+<div class="tags">
+
+<span>Machine Learning</span>
+<span>Classification</span>
+<span>Scikit-Learn</span>
+<span>Pandas</span>
+<span>Customer Analytics</span>
+
+</div>
+
+<a href="https://github.com/Anshgallery/ChurnPulse_Project" target="_blank">
+View Project →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="top">
+
+<div class="label">
+Regression Model
+</div>
+
+</div>
+
+<h3>Diamond Price Prediction</h3>
+
+<p>
+Advanced regression pipeline utilizing automated preprocessing,
+feature transformation and predictive modelling to estimate diamond prices
+through an interactive production-ready Flask application.
+</p>
+
+<div class="tags">
+
+<span>Regression</span>
+<span>Flask</span>
+<span>Docker</span>
+<span>MLOps</span>
+<span>AWS</span>
+
+</div>
+
+<a href="https://github.com/Anshgallery/Diamond_price_prediction_project" target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

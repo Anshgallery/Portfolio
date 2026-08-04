@@ -1,0 +1,314 @@
+<!-- =========================================================
+APPLE INSPIRED CERTIFICATES (FULL CERTIFICATE VISIBLE)
+No Cropping • Premium UI • HTML + CSS Combined
+========================================================= -->
+
+<section class="certificates" id="certificates">
+
+    <div class="certificate-heading">
+        <span>CERTIFICATIONS</span>
+        <h1>Professional Credentials</h1>
+        <p>Verified certifications in Data Science, SQL & Machine Learning.</p>
+    </div>
+
+    <div class="certificate-grid">
+
+        <!-- Certificate 1 -->
+        <a href="https://pwskills.com/learn/certificate/1bf33a58-a16f-40b6-8070-816034153477/"
+            target="_blank"
+            class="certificate-card featured">
+
+            <div class="certificate-image">
+                <img src="{{ url_for('static', filename='images/Ineuronxpw.png') }}" alt="">
+            </div>
+
+            <div class="certificate-info">
+                <span>PW Skills × iNeuron</span>
+                <h2>Data Science Mastery</h2>
+                <p>Professional Certification</p>
+            </div>
+
+        </a>
+
+        <!-- Certificate 2 -->
+        <a href="https://www.hackerrank.com/certificates/a09bd2b421d1"
+            target="_blank"
+            class="certificate-card">
+
+            <div class="certificate-image">
+                <img src="{{ url_for('static', filename='images/HackerRank_Sql.png') }}" alt="">
+            </div>
+
+            <div class="certificate-info">
+                <span>HackerRank</span>
+                <h2>SQL</h2>
+                <p>Verified Skill Certificate</p>
+            </div>
+
+        </a>
+
+        <!-- Certificate 3 -->
+        <a href="https://pwskills.com/learn/certificate/ced2369e-d24a-4d11-95a4-3127fa837668"
+            target="_blank"
+            class="certificate-card">
+
+            <div class="certificate-image">
+                <img src="{{ url_for('static', filename='images/HousePricePrediction.png') }}" alt="">
+            </div>
+
+            <div class="certificate-info">
+                <span>PW Skills</span>
+                <h2>House Price Prediction</h2>
+                <p>Machine Learning Project</p>
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#fff;
+color:#111;
+}
+
+/*==============================*/
+
+.certificates{
+padding:5px 4%;
+background:#fff;
+}
+
+/*==============================*/
+
+.certificate-heading{
+text-align:center;
+margin-bottom:50px;
+}
+
+.certificate-heading span{
+font-size:13px;
+letter-spacing:6px;
+font-weight:700;
+color:#8c8c8c;
+}
+
+.certificate-heading h1{
+margin-top:18px;
+font-size:clamp(48px,7vw,90px);
+font-weight:800;
+letter-spacing:-3px;
+line-height:1;
+}
+
+.certificate-heading p{
+margin-top:18px;
+font-size:20px;
+color:#666;
+}
+
+/*==============================*/
+
+.certificate-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:45px;
+max-width:1450px;
+margin:auto;
+
+}
+
+/* Featured Card */
+
+.featured{
+grid-column:span 2;
+}
+
+/*==============================*/
+
+.certificate-card{
+
+background:#fff;
+
+border-radius:30px;
+
+overflow:hidden;
+
+text-decoration:none;
+
+border:1px solid rgba(0,0,0,.07);
+
+box-shadow:
+0 15px 45px rgba(0,0,0,.06);
+
+transition:.45s ease;
+
+display:flex;
+flex-direction:column;
+
+}
+
+.certificate-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 30px 70px rgba(0,0,0,.12);
+
+}
+
+/*==============================*/
+/* IMAGE */
+
+.certificate-image{
+
+background:#f6f6f6;
+
+padding:30px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.certificate-image img{
+
+width:95%;
+
+height:auto;
+
+/* IMPORTANT */
+object-fit:contain;
+
+display:block;
+
+border-radius:14px;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.06);
+
+}
+
+/*==============================*/
+
+.certificate-info{
+
+padding:30px;
+
+}
+
+.certificate-info span{
+
+display:block;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#888;
+
+margin-bottom:14px;
+
+font-weight:700;
+
+}
+
+.certificate-info h2{
+
+font-size:34px;
+
+font-weight:800;
+
+letter-spacing:-1px;
+
+color:#111;
+
+margin-bottom:12px;
+
+}
+
+.certificate-info p{
+
+font-size:17px;
+
+color:#666;
+
+}
+
+/*==============================*/
+
+@media(max-width:1100px){
+
+.certificate-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.featured{
+
+grid-column:span 1;
+
+}
+
+}
+
+/*==============================*/
+
+@media(max-width:768px){
+
+.certificates{
+
+padding:90px 20px;
+
+}
+
+.certificate-heading h1{
+
+font-size:52px;
+
+}
+
+.certificate-heading p{
+
+font-size:16px;
+
+}
+
+.certificate-image{
+
+padding:18px;
+
+}
+
+.certificate-info{
+
+padding:22px;
+
+}
+
+.certificate-info h2{
+
+font-size:28px;
+
+}
+
+}
+
+</style>
