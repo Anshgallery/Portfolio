@@ -196,7 +196,7 @@ It motivates me to continue building impactful AI and Data Science projects.
 
 ### AI & Data Science Engineer
 
-*"Turning complex data into intelligent solutions."*
+
 
 <br>
 
@@ -204,6 +204,6 @@ It motivates me to continue building impactful AI and Data Science projects.
 
 <br><br>
 
-**Made with ❤️ using Python, Flask, HTML, CSS & JavaScript**
+
 
 </div>
