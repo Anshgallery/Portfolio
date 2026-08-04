@@ -4,7 +4,7 @@
 
 ### **AI • DATA SCIENCE • MACHINE LEARNING • BUSINESS ANALYTICS**
 
-<img src="static/images/photo.jpg" width="170" style="border-radius:50%;"/>
+<!-- <img src="static/images/photo.jpg" width="170" style="border-radius:50%;"/> -->
 
 <p align="center">
 Building intelligent systems, transforming raw data into business value, and creating scalable AI solutions for real-world impact.
@@ -164,19 +164,19 @@ The portfolio showcases my technical expertise, real-world projects, certificati
 
 #  Repository Statistics
 
-<p align="center">
+<!-- <p align="center"> -->
 
-<img src="https://github-readme-stats.vercel.app/api?username=Anshgallery&show_icons=true&theme=default"/>
+<!-- <img src="https://github-readme-stats.vercel.app/api?username=Anshgallery&show_icons=true&theme=default"/> -->
 
-<br><br>
+<!-- <br><br> -->
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Anshgallery"/>
+<!-- <img src="https://github-readme-streak-stats.herokuapp.com/?user=Anshgallery"/> -->
 
-<br><br>
+<!-- <br><br> -->
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anshgallery&layout=compact"/>
+<!-- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anshgallery&layout=compact"/> -->
 
-</p>
+<!-- </p> -->
 
 ---
 
