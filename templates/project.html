@@ -505,7 +505,26 @@ font-size:38px;
 
 .video-overlay{
 
-padding:28px;
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:65px;
+
+    opacity:0;
+
+    transition:opacity .5s ease;
+
+}
+.video-card:hover .video-overlay{
+
+    opacity:1;
 
 }
 
@@ -610,7 +629,7 @@ Live Demo
 </div>
 
 <div class="stat">
-<h3>8+</h3>
+<h3>11+</h3>
 <p>Pipeline Components</p>
 </div>
 
