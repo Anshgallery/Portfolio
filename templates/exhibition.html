@@ -306,31 +306,132 @@ line-height:28px;
                 QUOTE
 ========================================================== */
 
+/* ==========================================================
+                QUOTE VIDEO SECTION
+========================================================== */
+
 .quote{
 
-width:75%;
+    position:relative;
 
-margin:140px auto;
+    width:100%;
+    min-height:700px;
 
-text-align:center;
+    margin:170px 0 0;
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+/* Background Video */
+
+.quote video{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:0;
+
+}
+
+/* Dark overlay on video */
+
+.quote::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.60);
+    opacity:0;
+    transition:0.5s;
+    z-index:1;
+}
+
+/* Text placed above video */
+
+.quote-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:80%;
+
+    max-width:1100px;
+
+    text-align:center;
+
+    opacity:0;
+
+    transition:0.5s;
+
+}
+.quote:hover::after{
+    opacity:0.5;
+}
+
+.quote:hover .quote-content{
+    opacity:1;
 }
 
 .quote h2{
 
-font-size:52px;
-font-weight:800;
-letter-spacing:-2px;
-line-height:1.3;
+    font-size:52px;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    line-height:1.3;
+
+    color:white;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.5);
 
 }
 
 .quote p{
 
-margin-top:35px;
-font-size:22px;
-line-height:40px;
-color:#777;
+    margin-top:35px;
+
+    font-size:22px;
+
+    line-height:40px;
+
+    color:#eee;
+
+}
+
+.quote .btn{
+
+    margin-top:50px;
+
+    background:white;
+
+    color:#111;
+
+}
+
+.quote .btn:hover{
+
+    transform:translateY(-5px);
+
+    background:#f1f1f1;
 
 }
 
@@ -665,23 +766,48 @@ Live Demonstration & Technical Presentation
 
 <!-- ===================== QUOTE ===================== -->
 
+<!-- ===================== QUOTE VIDEO ===================== -->
+
 <section class="quote">
 
-<h2>
+    <!-- Background Exhibition Video -->
 
-"True innovation isn't measured by the complexity of a project, but by the impact it creates when shared with the world."
+    <video autoplay muted loop playsinline>
 
-</h2>
+        <source
+            src="{{ url_for('static', filename='video/exhibition.mp4') }}"
+            type="video/mp4"
+        >
 
-<p>
+        Your browser does not support the video tag.
 
-<!-- Representing my institution on a national platform strengthened my belief that technology becomes meaningful only when it solves real problems and inspires people. -->
+    </video>
 
-</p>
 
-<a href="{{ url_for('details') }}" class="btn">
-Explore Portfolio
-</a>
+    <!-- Text Above Video -->
+
+    <div class="quote-content">
+
+        <h2>
+
+            Introducing the First-Ever Carbonated Milk Drink
+
+        </h2>
+
+        <p>
+            "True innovation isn't measured by the complexity
+            of a project, but by the impact it creates when
+            shared with the world."
+
+        </p>
+
+        <a href="{{ url_for('details') }}" class="btn">
+
+            Explore Portfolio
+
+        </a>
+
+    </div>
 
 </section>
 
