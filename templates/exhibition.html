@@ -2,598 +2,2180 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Level Representative | Ansh</title>
+<title>Ansh Wadhwa | AI & Data Science Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,Arial,sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#fff;
-color:#111;
-overflow-x:hidden;
+    margin:0;
+    padding:0;
+    font-family:"Inter",Arial,sans-serif;
+    background:#fff;
+    color:#050505;
+    overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
+img,
+video{
+    display:block;
+    max-width:100%;
+}
 
-nav{
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:75px;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* =========================================================
+   ANSH 2 SECOND INTRO
+========================================================= */
 
-padding:0 7%;
+#anshIntro{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100svh;
+    background:#050505;
+    z-index:99999;
 
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(18px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-z-index:1000;
+    overflow:hidden;
 
+    animation:
+        introDisappear .8s cubic-bezier(.7,0,.2,1) 1.65s forwards;
+}
+
+#anshIntro::before{
+    content:"";
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:#cfff00;
+
+    box-shadow:
+        0 0 30px #cfff00,
+        0 0 100px rgba(207,255,0,.7),
+        0 0 220px rgba(207,255,0,.35);
+
+    animation:boomCircle 1.9s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+#anshIntro::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0,
+            transparent 20%,
+            rgba(207,255,0,.05) 35%,
+            transparent 65%
+        );
+
+    animation:boomGlow 1.8s ease-out forwards;
+}
+
+.ansh-intro-text{
+    position:relative;
+    z-index:5;
+
+    color:#fff;
+
+    font-size:
+        clamp(
+            70px,
+            15vw,
+            210px
+        );
+
+    line-height:.8;
+
+    font-weight:900;
+
+    letter-spacing:-.11em;
+
+    animation:anshText 1.7s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.ansh-intro-text span{
+    color:#cfff00;
+}
+
+@keyframes anshText{
+
+    0%{
+        opacity:0;
+        transform:scale(.55);
+        filter:blur(20px);
+    }
+
+    25%{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+
+    70%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(3.8);
+        filter:blur(12px);
+    }
+}
+
+@keyframes boomCircle{
+
+    0%{
+        opacity:1;
+        transform:scale(.1);
+    }
+
+    50%{
+        opacity:.8;
+        transform:scale(12);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(90);
+    }
+}
+
+@keyframes boomGlow{
+
+    0%{
+        opacity:0;
+        transform:scale(.5);
+    }
+
+    35%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.8);
+    }
+}
+
+@keyframes introDisappear{
+
+    0%{
+        opacity:1;
+        visibility:visible;
+    }
+
+    100%{
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:calc(100% - 48px);
+    max-width:1450px;
+
+    height:66px;
+
+    padding:0 12px 0 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:20px;
+
+    background:rgba(5,5,5,.48);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    color:#fff;
+
+    z-index:1000;
+
+    transition:.35s ease;
+}
+
+.navbar.scrolled{
+    background:rgba(5,5,5,.90);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.25);
 }
 
 .logo{
-
-font-size:30px;
-font-weight:900;
-letter-spacing:-2px;
-
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-1.8px;
 }
 
 .logo span{
-
-color:#888;
-
+    color:#cfff00;
 }
 
-nav ul{
-
-display:flex;
-list-style:none;
-gap:45px;
-
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
 }
 
-nav a{
+.nav-links a{
+    position:relative;
 
-text-decoration:none;
-color:#555;
-font-size:15px;
-transition:.3s;
+    color:#ddd;
 
+    font-size:11px;
+    font-weight:600;
+
+    transition:.25s ease;
 }
 
-nav a:hover{
-
-color:#000;
-
+.nav-links a:hover{
+    color:#cfff00;
 }
 
-/* ==========================================================
-                        HERO
-========================================================== */
+.nav-contact{
+    padding:12px 20px;
+
+    background:#cfff00;
+
+    color:#000 !important;
+
+    border-radius:100px;
+
+    font-weight:800 !important;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
+    position:relative;
 
-position:relative;
-width:100%;
-height:100vh;
+    width:100%;
+    height:100svh;
+    min-height:680px;
 
-overflow:hidden;
+    overflow:hidden;
 
+    background:#050505;
 }
 
-/* ==========================================================
-      CHANGE IMAGE 1 HERE
-      static/images/exhibition1.jpg
-========================================================== */
+.hero-image{
+    position:absolute;
 
-.hero img{
+    inset:0;
 
-width:100%;
-height:100%;
-object-fit:cover;
+    width:100%;
+    height:100%;
 
-display:block;
+    object-fit:cover;
+    object-position:center 35%;
+
+    transform:scale(1.02);
+
+    z-index:1;
+
+    animation:heroZoom 10s ease-out forwards;
+}
+
+@keyframes heroZoom{
+
+    from{
+        transform:scale(1.08);
+    }
+
+    to{
+        transform:scale(1.02);
+    }
 
 }
 
 .hero::after{
-
-content:"";
-position:absolute;
-left:0;
-top:0;
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,.18),
-rgba(0,0,0,.55)
-);
-
-}
-
-.overlay{
-
-position:absolute;
-
-bottom:10%;
-left:8%;
-
-z-index:10;
-color:white;
-
-}
-
-.overlay p{
-
-letter-spacing:5px;
-font-size:15px;
-font-weight:700;
-
-}
-
-.overlay h1{
-
-margin-top:25px;
-
-font-size:100px;
-line-height:.92;
-letter-spacing:-6px;
-font-weight:900;
-
-}
-
-.overlay h3{
-
-margin-top:25px;
-
-font-size:28px;
-font-weight:500;
-color:#f3f3f3;
-
-}
-
-/* ==========================================================
-                STORY
-========================================================== */
-
-.story{
-
-max-width:1200px;
-margin:180px auto;
-
-padding:0 40px;
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:100px;
-align-items:center;
-
-}
-
-.story h2{
-
-font-size:70px;
-font-weight:900;
-letter-spacing:-4px;
-line-height:1;
-
-}
-
-.story p{
-
-font-size:20px;
-line-height:38px;
-color:#666;
-
-}
-
-/* ==========================================================
-            GALLERY
-========================================================== */
-
-.gallery{
-
-width:90%;
-margin:auto;
-
-display:grid;
-grid-template-columns:1fr 1fr;
-
-gap:45px;
-
-}
-
-/* ==========================================================
-      CHANGE IMAGE 2 HERE
-      static/images/exhibition2.jpg
-========================================================== */
-
-.gallery img{
-
-width:100%;
-aspect-ratio:1;
-object-fit:cover;
-border-radius:35px;
-
-transition:.5s;
-
-box-shadow:
-0 30px 80px rgba(0,0,0,.12);
-
-}
-
-.gallery img:hover{
-
-transform:translateY(-12px);
-
-}
-
-/* ==========================================================
-                IMPACT
-========================================================== */
-
-.impact{
-
-width:90%;
-
-margin:170px auto;
-
-display:grid;
-grid-template-columns:repeat(4,1fr);
-
-gap:35px;
-
-}
-
-.card{
-
-padding:40px;
-border-radius:30px;
-
-background:#fafafa;
-
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.08);
-
-}
-
-.card h2{
-
-font-size:60px;
-font-weight:900;
-
-}
-
-.card p{
-
-margin-top:15px;
-color:#777;
-line-height:28px;
-
-}
-
-/* ==========================================================
-                QUOTE
-========================================================== */
-
-/* ==========================================================
-                QUOTE VIDEO SECTION
-========================================================== */
-
-.quote{
-
-    position:relative;
-
-    width:100%;
-    min-height:700px;
-
-    margin:170px 0 0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    color:white;
-
-}
-
-/* Background Video */
-
-.quote video{
+    content:"";
 
     position:absolute;
 
-    top:0;
-    left:0;
+    inset:0;
+
+    z-index:2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.40) 45%,
+            rgba(0,0,0,.08)
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.82),
+            transparent 55%
+        );
+}
+
+.hero-content{
+    position:absolute;
+
+    left:7vw;
+    bottom:9vh;
+
+    max-width:950px;
+
+    z-index:5;
+
+    color:white;
+}
+
+.hero-label{
+    display:inline-flex;
+
+    align-items:center;
+    gap:9px;
+
+    padding:9px 15px;
+
+    margin-bottom:25px;
+
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:100px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:2.5px;
+}
+
+.hero-label span{
+    width:7px;
+    height:7px;
+
+    flex:none;
+
+    border-radius:50%;
+
+    background:#cfff00;
+
+    box-shadow:
+        0 0 16px #cfff00;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.5);
+        opacity:.5;
+    }
+
+}
+
+.hero-title{
+    margin:0;
+
+    font-size:
+        clamp(
+            58px,
+            8.4vw,
+            125px
+        );
+
+    line-height:.84;
+
+    letter-spacing:-.085em;
+
+    font-weight:800;
+}
+
+.hero-title .lime{
+    color:#cfff00;
+}
+
+.hero-subtitle{
+    max-width:680px;
+
+    margin-top:25px;
+
+    color:rgba(255,255,255,.76);
+
+    font-size:
+        clamp(
+            13px,
+            1.25vw,
+            17px
+        );
+
+    line-height:1.7;
+}
+
+.hero-actions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:28px;
+}
+
+.hero-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:45px;
+
+    padding:0 22px;
+
+    border-radius:100px;
+
+    font-size:10px;
+    font-weight:800;
+
+    transition:.3s ease;
+}
+
+.hero-btn.primary{
+    background:#cfff00;
+    color:#000;
+}
+
+.hero-btn.secondary{
+    border:1px solid rgba(255,255,255,.3);
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    color:#fff;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+}
+
+.hero-btn.primary:hover{
+    box-shadow:
+        0 15px 40px
+        rgba(207,255,0,.30);
+}
+
+.hero-corner{
+    position:absolute;
+
+    right:35px;
+    bottom:30px;
+
+    z-index:5;
+
+    color:rgba(255,255,255,.55);
+
+    font-size:8px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    padding:
+        clamp(90px,12vw,170px)
+        7vw;
+
+    background:#fff;
+}
+
+.intro-inner{
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:clamp(50px,8vw,110px);
+
+    align-items:center;
+}
+
+.section-label{
+    margin-bottom:22px;
+
+    color:#999;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+}
+
+.intro h2{
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            100px
+        );
+
+    line-height:.87;
+
+    letter-spacing:-.08em;
+
+    font-weight:800;
+}
+
+.intro h2 span{
+    color:#aaa;
+}
+
+.intro-text{
+    color:#666;
+
+    font-size:
+        clamp(
+            14px,
+            1.35vw,
+            17px
+        );
+
+    line-height:1.9;
+}
+
+.intro-text strong{
+    color:#111;
+}
+
+
+/* =========================================================
+   GALLERY
+   EXACTLY 3 PHOTOS
+========================================================= */
+
+.gallery{
+    padding:
+        clamp(80px,10vw,120px)
+        0;
+
+    background:#050505;
+
+    color:#fff;
+
+    overflow:hidden;
+}
+
+.gallery-heading{
+    width:86%;
+    max-width:1400px;
+
+    margin:
+        0 auto
+        clamp(35px,5vw,60px);
+}
+
+.gallery-heading h2{
+    margin:0;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            105px
+        );
+
+    line-height:.86;
+
+    letter-spacing:-.08em;
+}
+
+.gallery-heading h2 span{
+    color:#666;
+}
+
+
+/* =========================================================
+   NEW 3 PHOTO LAYOUT
+========================================================= */
+
+.image-showcase{
+    width:100%;
+
+    max-width:1500px;
+
+    margin:0 auto;
+
+    padding:0 22px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap:18px;
+}
+
+.photo-card{
+    position:relative;
+
+    width:100%;
+
+    height:
+        clamp(
+            520px,
+            48vw,
+            720px
+        );
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#111;
+
+    isolation:isolate;
+
+    cursor:pointer;
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        box-shadow .55s ease;
+}
+
+.photo-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,.45);
+}
+
+.photo-card img{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    transition:
+        transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+
+/* NORMAL PHOTOS */
+
+.photo-card.standard img{
+    object-fit:cover;
+
+    object-position:center center;
+}
+
+
+/* =========================================================
+   GUIDE IMAGE
+   ZOOMED OUT TO SHOW FACE
+========================================================= */
+
+.photo-card.guide-photo{
+    background:#181818;
+}
+
+.photo-card.guide-photo img{
+    object-fit:contain;
+
+    object-position:center center;
+
+    width:100%;
+    height:100%;
+
+    transform:scale(.88);
+}
+
+.photo-card.guide-photo:hover img{
+    transform:scale(.94);
+}
+
+
+/* =========================================================
+   FACULTY IMAGE
+========================================================= */
+
+.photo-card.faculty-photo img{
+    object-fit:cover;
+
+    object-position:center 35%;
+}
+
+.photo-card.faculty-photo:hover img{
+    transform:scale(1.05);
+}
+
+
+/* =========================================================
+   OFFICER IMAGE
+========================================================= */
+
+.photo-card.officer-photo img{
+    object-fit:cover;
+
+    object-position:center center;
+}
+
+.photo-card.officer-photo:hover img{
+    transform:scale(1.05);
+}
+
+
+/* =========================================================
+   PHOTO OVERLAY
+========================================================= */
+
+.photo-card::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 35%,
+            rgba(0,0,0,.08) 50%,
+            rgba(0,0,0,.88) 100%
+        );
+}
+
+.photo-number{
+    position:absolute;
+
+    top:22px;
+    left:22px;
+
+    z-index:5;
+
+    padding:8px 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius:100px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    backdrop-filter:blur(12px);
+
+    color:#cfff00;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.photo-content{
+    position:absolute;
+
+    left:25px;
+    right:25px;
+    bottom:25px;
+
+    z-index:5;
+}
+
+.photo-content small{
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#cfff00;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.photo-content h3{
+    max-width:450px;
+
+    font-size:
+        clamp(
+            25px,
+            2.5vw,
+            42px
+        );
+
+    line-height:.94;
+
+    letter-spacing:-.06em;
+}
+
+
+/* =========================================================
+   IMPACT
+========================================================= */
+
+.impact{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    background:#050505;
+
+    color:white;
+}
+
+.impact-card{
+    min-width:0;
+
+    padding:
+        clamp(30px,4vw,50px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.35s ease;
+}
+
+.impact-card:hover{
+    background:#111;
+    transform:translateY(-6px);
+}
+
+.impact-number{
+    font-size:
+        clamp(
+            42px,
+            5vw,
+            72px
+        );
+
+    font-weight:800;
+
+    line-height:1;
+
+    letter-spacing:-.07em;
+}
+
+.impact-number span{
+    color:#cfff00;
+}
+
+.impact-card p{
+    margin-top:14px;
+
+    color:#777;
+
+    font-size:9px;
+
+    line-height:1.6;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-section{
+    position:relative;
+
+    width:100%;
+    height:100svh;
+
+    min-height:650px;
+
+    overflow:hidden;
+
+    background:#000;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.video-section video{
+    position:absolute;
+
+    inset:0;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    z-index:0;
+    object-position:center center;
 
-}
-
-/* Dark overlay on video */
-
-.quote::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.60);
-    opacity:0;
-    transition:0.5s;
     z-index:1;
 }
 
-/* Text placed above video */
+.video-overlay{
+    position:absolute;
 
-.quote-content{
+    inset:0;
 
+    z-index:2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.18),
+            rgba(0,0,0,.68)
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.72),
+            transparent 55%
+        );
+}
+
+.video-content{
+    position:relative;
+
+    z-index:5;
+
+    width:min(1050px,88%);
+
+    text-align:center;
+
+    color:white;
+}
+
+.video-label{
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius:100px;
+
+    color:#cfff00;
+
+    background:rgba(0,0,0,.3);
+
+    backdrop-filter:blur(12px);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+}
+
+.video-content h2{
+    margin-top:24px;
+
+    font-size:
+        clamp(
+            52px,
+            8vw,
+            115px
+        );
+
+    line-height:.84;
+
+    letter-spacing:-.09em;
+
+    font-weight:800;
+}
+
+.video-content h2 span{
+    color:#cfff00;
+}
+
+.video-content p{
+    max-width:650px;
+
+    margin:28px auto 0;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:
+        clamp(
+            12px,
+            1.3vw,
+            16px
+        );
+
+    line-height:1.7;
+}
+
+.video-corner{
+    position:absolute;
+
+    right:30px;
+    bottom:28px;
+
+    z-index:5;
+
+    color:#cfff00;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+    padding:
+        clamp(90px,12vw,160px)
+        7vw;
+
+    background:#f5f5f5;
+}
+
+.projects-header{
+    max-width:1250px;
+
+    margin:
+        0 auto 65px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-end;
+
+    gap:50px;
+}
+
+.projects-header h2{
+    margin:0;
+
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            110px
+        );
+
+    line-height:.83;
+
+    letter-spacing:-.09em;
+}
+
+.projects-header h2 span{
+    color:#aaa;
+}
+
+.projects-header p{
+    max-width:400px;
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.project-grid{
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:20px;
+}
+
+.project-card{
+    position:relative;
+
+    min-height:500px;
+
+    overflow:hidden;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:#050505;
+
+    color:#fff;
+
+    transition:.4s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.18);
+}
+
+.project-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    right:-180px;
+    top:-180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(207,255,0,.3),
+            transparent 65%
+        );
+}
+
+.project-content{
     position:relative;
 
     z-index:2;
 
-    width:80%;
+    min-height:430px;
 
-    max-width:1100px;
+    display:flex;
 
-    text-align:center;
+    flex-direction:column;
 
-    opacity:0;
-
-    transition:0.5s;
-
-}
-.quote:hover::after{
-    opacity:0.5;
+    justify-content:space-between;
 }
 
-.quote:hover .quote-content{
-    opacity:1;
-}
+.project-number{
+    color:#cfff00;
 
-.quote h2{
-
-    font-size:52px;
+    font-size:8px;
 
     font-weight:800;
 
-    letter-spacing:-2px;
+    letter-spacing:2px;
+}
 
-    line-height:1.3;
+.project-card h3{
+    font-size:
+        clamp(
+            36px,
+            5vw,
+            65px
+        );
+
+    line-height:.87;
+
+    letter-spacing:-.07em;
+}
+
+.project-card p{
+    max-width:500px;
+
+    margin-top:18px;
+
+    color:#888;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.project-link{
+    display:inline-flex;
+
+    margin-top:23px;
 
     color:white;
 
-    text-shadow:
-        0 5px 30px rgba(0,0,0,.5);
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.3s ease;
+}
+
+.project-link:hover{
+    color:#cfff00;
+
+    transform:translateX(6px);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    position:relative;
+
+    min-height:620px;
+
+    padding:80px 25px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#050505;
+
+    color:#fff;
+
+    text-align:center;
+}
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    width:min(650px,90vw);
+    height:min(650px,90vw);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(207,255,0,.15),
+            transparent 65%
+        );
+
+    animation:glow 6s ease-in-out infinite;
+}
+
+@keyframes glow{
+
+    50%{
+        transform:scale(1.2);
+    }
 
 }
 
-.quote p{
+.cta-content{
+    position:relative;
 
-    margin-top:35px;
+    z-index:2;
+
+    max-width:950px;
+}
+
+.cta-label{
+    color:#cfff00;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+}
+
+.cta h2{
+    margin-top:25px;
+
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            125px
+        );
+
+    line-height:.83;
+
+    letter-spacing:-.09em;
+}
+
+.cta h2 span{
+    color:#666;
+}
+
+.cta p{
+    max-width:600px;
+
+    margin:28px auto 0;
+
+    color:#777;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+.cta-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:32px;
+}
+
+.cta-button{
+    min-height:46px;
+
+    padding:0 22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:100px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.3s ease;
+}
+
+.cta-button.mail{
+    background:#cfff00;
+    color:#000;
+}
+
+.cta-button.call{
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    color:#fff;
+}
+
+.cta-button:hover{
+    transform:translateY(-4px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    min-height:80px;
+
+    padding:
+        25px 7vw;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    background:#050505;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:#666;
+
+    font-size:9px;
+}
+
+.footer-logo{
+    color:#fff;
 
     font-size:22px;
 
-    line-height:40px;
-
-    color:#eee;
-
+    font-weight:800;
 }
 
-.quote .btn{
-
-    margin-top:50px;
-
-    background:white;
-
-    color:#111;
-
+.footer-logo span{
+    color:#cfff00;
 }
 
-.quote .btn:hover{
 
-    transform:translateY(-5px);
+/* =========================================================
+   REVEAL
+========================================================= */
 
-    background:#f1f1f1;
+.reveal{
+    opacity:0;
 
+    transform:translateY(45px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s
+        cubic-bezier(.2,.7,.2,1);
 }
 
-.btn{
+.reveal.visible{
+    opacity:1;
 
-display:inline-block;
-
-margin-top:50px;
-
-padding:18px 42px;
-
-border-radius:40px;
-
-background:#111;
-
-color:white;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.3s;
-
+    transform:translateY(0);
 }
 
-.btn:hover{
 
-transform:translateY(-5px);
-
-}
-
-/* ==========================================================
-                FOOTER
-========================================================== */
-
-footer{
-
-margin-top:150px;
-
-padding:45px;
-
-text-align:center;
-
-color:#999;
-
-border-top:1px solid #eee;
-
-}
-
-/* ==========================================================
-                RESPONSIVE
-========================================================== */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media(max-width:1000px){
 
-.overlay h1{
+    .navbar{
+        width:calc(100% - 30px);
+    }
 
-font-size:62px;
+    .nav-links{
+        gap:16px;
+    }
+
+    .nav-links a{
+        font-size:9px;
+    }
+
+    .nav-contact{
+        padding:10px 15px;
+    }
+
+    .hero-content{
+        left:5vw;
+        right:5vw;
+    }
+
+    .image-showcase{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:12px;
+
+        padding:0 14px;
+    }
+
+    .photo-card{
+        height:500px;
+        border-radius:20px;
+    }
+
+    .photo-content{
+        left:18px;
+        right:18px;
+        bottom:20px;
+    }
+
+    .impact{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
 }
 
-.story{
 
-grid-template-columns:1fr;
-gap:50px;
-
-}
-
-.story h2{
-
-font-size:50px;
-
-}
-
-.gallery{
-
-grid-template-columns:1fr;
-
-}
-
-.impact{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.quote{
-
-width:90%;
-
-}
-
-}
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
-nav{
+    body{
+        width:100%;
+    }
 
-padding:0 25px;
+
+    /* NAV */
+
+    .navbar{
+        top:10px;
+
+        width:
+            calc(100% - 20px);
+
+        height:58px;
+
+        padding:
+            0 8px 0 17px;
+
+        border-radius:16px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-contact{
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        height:38px;
+
+        padding:0 15px;
+
+        font-size:9px !important;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        height:100svh;
+
+        min-height:680px;
+    }
+
+    .hero-image{
+        object-position:
+            58% center;
+
+        transform:scale(1.02);
+    }
+
+    .hero::after{
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,.20),
+                rgba(0,0,0,.12) 30%,
+                rgba(0,0,0,.88) 100%
+            );
+    }
+
+    .hero-content{
+
+        left:20px;
+        right:20px;
+
+        bottom:55px;
+
+        max-width:none;
+    }
+
+    .hero-label{
+        margin-bottom:18px;
+
+        padding:8px 12px;
+
+        font-size:7px;
+
+        letter-spacing:1.8px;
+    }
+
+    .hero-title{
+
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                76px
+            );
+
+        line-height:.86;
+
+        letter-spacing:-.075em;
+    }
+
+    .hero-subtitle{
+
+        margin-top:18px;
+
+        max-width:500px;
+
+        font-size:12px;
+
+        line-height:1.65;
+    }
+
+    .hero-actions{
+
+        margin-top:22px;
+
+        gap:8px;
+    }
+
+    .hero-btn{
+
+        min-height:42px;
+
+        padding:0 17px;
+
+        font-size:9px;
+    }
+
+    .hero-corner{
+        display:none;
+    }
+
+
+    /* INTRO */
+
+    .intro{
+
+        padding:
+            90px 20px;
+    }
+
+    .intro-inner{
+
+        display:block;
+    }
+
+    .intro h2{
+
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                72px
+            );
+
+        line-height:.88;
+    }
+
+    .intro-text{
+
+        margin-top:40px;
+
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+
+    /* =====================================================
+       MOBILE GALLERY
+       3 PHOTOS = 3 CARDS
+    ===================================================== */
+
+    .gallery{
+
+        padding:
+            75px 0;
+    }
+
+    .gallery-heading{
+
+        width:
+            calc(100% - 40px);
+
+        margin-bottom:35px;
+    }
+
+    .gallery-heading h2{
+
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                75px
+            );
+    }
+
+    .image-showcase{
+
+        width:100%;
+
+        padding:
+            0 12px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:12px;
+    }
+
+    .photo-card{
+
+        width:100%;
+
+        height:
+            clamp(
+                390px,
+                105vw,
+                520px
+            );
+
+        border-radius:20px;
+    }
+
+
+    /* GUIDE MOBILE */
+
+    .photo-card.guide-photo img{
+
+        object-fit:contain;
+
+        transform:scale(.82);
+    }
+
+    .photo-card.guide-photo:hover img{
+
+        transform:scale(.86);
+    }
+
+
+    /* OTHER PHOTOS */
+
+    .photo-card.faculty-photo img{
+
+        object-fit:cover;
+
+        object-position:center 32%;
+    }
+
+    .photo-card.officer-photo img{
+
+        object-fit:cover;
+
+        object-position:center center;
+    }
+
+    .photo-number{
+
+        top:16px;
+        left:16px;
+
+        padding:7px 10px;
+    }
+
+    .photo-content{
+
+        left:20px;
+        right:20px;
+        bottom:20px;
+    }
+
+    .photo-content h3{
+
+        font-size:
+            clamp(
+                25px,
+                8vw,
+                38px
+            );
+    }
+
+
+    /* IMPACT */
+
+    .impact{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .impact-card{
+
+        padding:
+            30px 20px;
+    }
+
+    .impact-number{
+
+        font-size:
+            clamp(
+                40px,
+                12vw,
+                58px
+            );
+    }
+
+
+    /* VIDEO */
+
+    .video-section{
+
+        height:100svh;
+
+        min-height:620px;
+    }
+
+    .video-section video{
+
+        object-fit:cover;
+
+        object-position:center center;
+    }
+
+    .video-overlay{
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,.20),
+                rgba(0,0,0,.10) 30%,
+                rgba(0,0,0,.85)
+            );
+    }
+
+    .video-content{
+
+        width:
+            calc(100% - 40px);
+
+        margin-top:80px;
+    }
+
+    .video-content h2{
+
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                75px
+            );
+
+        line-height:.87;
+    }
+
+    .video-content p{
+
+        max-width:450px;
+
+        margin-top:20px;
+
+        font-size:12px;
+    }
+
+    .video-corner{
+        display:none;
+    }
+
+
+    /* PROJECTS */
+
+    .projects{
+
+        padding:
+            90px 20px;
+    }
+
+    .projects-header{
+
+        display:block;
+
+        margin-bottom:45px;
+    }
+
+    .projects-header h2{
+
+        font-size:
+            clamp(
+                52px,
+                14vw,
+                75px
+            );
+    }
+
+    .projects-header p{
+
+        margin-top:30px;
+
+        font-size:12px;
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .project-card{
+
+        min-height:430px;
+
+        padding:25px;
+
+        border-radius:22px;
+    }
+
+    .project-content{
+
+        min-height:380px;
+    }
+
+    .project-card h3{
+
+        font-size:
+            clamp(
+                38px,
+                12vw,
+                60px
+            );
+    }
+
+
+    /* CTA */
+
+    .cta{
+
+        min-height:560px;
+
+        padding:
+            70px 20px;
+    }
+
+    .cta h2{
+
+        font-size:
+            clamp(
+                52px,
+                14vw,
+                75px
+            );
+    }
+
+    .cta p{
+
+        font-size:12px;
+    }
+
+    .cta-buttons{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        width:100%;
+
+        max-width:350px;
+
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .cta-button{
+
+        width:100%;
+    }
+
+
+    /* FOOTER */
+
+    footer{
+
+        min-height:100px;
+
+        padding:
+            25px 20px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
 
 }
 
-nav ul{
 
-display:none;
+/* =========================================================
+   SMALL PHONES
+========================================================= */
 
-}
+@media(max-width:390px){
 
-.overlay{
+    .hero{
+        min-height:650px;
+    }
 
-left:6%;
+    .hero-content{
+        bottom:38px;
+    }
 
-}
+    .hero-title{
+        font-size:45px;
+    }
 
-.overlay h1{
+    .hero-subtitle{
+        font-size:11px;
+    }
 
-font-size:46px;
+    .hero-btn{
+        width:100%;
+    }
 
-}
+    .photo-card{
+        height:370px;
+    }
 
-.overlay h3{
+    .photo-card.guide-photo img{
+        transform:scale(.76);
+    }
 
-font-size:20px;
-
-}
-
-.story{
-
-padding:0 25px;
-
-}
-
-.story h2{
-
-font-size:40px;
-
-}
-
-.story p{
-
-font-size:18px;
-line-height:34px;
+    .impact-number{
+        font-size:36px;
+    }
 
 }
 
-.impact{
 
-grid-template-columns:1fr;
+/* =========================================================
+   LANDSCAPE PHONE
+========================================================= */
+
+@media(
+    max-width:900px
+) and (
+    orientation:landscape
+){
+
+    .hero{
+        height:100svh;
+
+        min-height:500px;
+    }
+
+    .hero-content{
+
+        bottom:30px;
+
+        max-width:75%;
+    }
+
+    .hero-title{
+
+        font-size:
+            clamp(
+                38px,
+                8vw,
+                60px
+            );
+    }
+
+    .hero-subtitle{
+
+        margin-top:10px;
+
+        font-size:10px;
+    }
+
+    .hero-actions{
+
+        margin-top:12px;
+    }
+
+    .hero-btn{
+
+        min-height:36px;
+    }
+
+    .photo-card{
+        height:420px;
+    }
 
 }
 
-.quote h2{
 
-font-size:34px;
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-}
+@media(
+    prefers-reduced-motion:reduce
+){
 
-.quote p{
+    *,
+    *::before,
+    *::after{
 
-font-size:18px;
-
-}
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+    }
 
 }
 
@@ -601,221 +2183,908 @@ font-size:18px;
 
 </head>
 
+
 <body>
 
-<!-- ===================== NAVBAR ===================== -->
 
-<nav>
+<!-- =========================================================
+     2 SECOND ANSH BOOM INTRO
+========================================================= -->
 
-<div class="logo">
-    ANSH<span>.</span>
+<div id="anshIntro">
+
+    <div class="ansh-intro-text">
+        ANSH<span>.</span>
+    </div>
+
 </div>
 
-<ul>
-    <li><a href="{{ url_for('details') }}">About</a></li>
-    <li><a href="{{ url_for('certification') }}">Certificates</a></li>
-    <li><a href="{{ url_for('projects') }}">Projects</a></li>
 
-    <li>
-        <a href="{{ url_for('static', filename='assets/Ansh_Resume_latest.pdf') }}" target="_blank">
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar" id="navbar">
+
+    <a href="#home" class="logo">
+        ANSH<span>.</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('details') }}">
+            About
+        </a>
+
+        <a href="{{ url_for('certification') }}">
+            Certificates
+        </a>
+
+        <a href="{{ url_for('projects') }}">
+            Projects
+        </a>
+
+        <a
+            href="{{ url_for('static', filename='assets/Ansh_Resume_latest.pdf') }}"
+            target="_blank"
+        >
             Resume
         </a>
-    </li>
 
-    <li><a href="{{ url_for('experence') }}">Experience</a></li>
+        <a href="{{ url_for('experence') }}">
+            Experience
+        </a>
 
-    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-</ul>
+        <a
+            href="mailto:nextrgenansh@gmail.com"
+            class="nav-contact"
+        >
+            Contact →
+        </a>
+
+    </div>
 
 </nav>
 
-<!-- ===================== HERO ===================== -->
 
-<section class="hero">
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<!-- ==================================================
-     CHANGE IMAGE 1 HERE
-=================================================== -->
+<section class="hero" id="home">
 
-<img src="{{ url_for('static', filename='images/intraction_with_officer.png') }}" alt="National Level Exhibition">
+    <img
+        class="hero-image"
+        src="{{ url_for('static', filename='images/intraction_with_officer.png') }}"
+        alt="Ansh Wadhwa at National Level Exhibition"
+    >
 
-<div class="overlay">
+    <div class="hero-content">
 
-<p>NATIONAL LEVEL REPRESENTATIVE</p>
+        <div class="hero-label">
 
-<h1>
+            <span></span>
 
-Representing<br>
+            NATIONAL LEVEL REPRESENTATIVE
 
-Innovation<br>
+        </div>
 
-Beyond Boundaries
+        <h1 class="hero-title">
 
-</h1>
+            Representing
 
-<h3>
+            <br>
 
-100% Tuition Fee Waiver Scholar | AI & Data Science Undergraduate 
+            <span class="lime">
+                Innovation.
+            </span>
 
-</h3>
+            <br>
 
-</div>
+            Beyond Boundaries.
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Ansh Wadhwa — AI & Data Science undergraduate
+            turning data, machine learning and intelligent
+            technology into real-world impact.
+
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                href="{{ url_for('projects') }}"
+                class="hero-btn primary"
+            >
+                EXPLORE MY WORK →
+            </a>
+
+            <a
+                href="mailto:nextrgenansh@gmail.com"
+                class="hero-btn secondary"
+            >
+                GET IN TOUCH
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-corner">
+        AI • DATA • INNOVATION
+    </div>
 
 </section>
 
-<!-- ===================== STORY ===================== -->
 
-<section class="story">
+<!-- =========================================================
+     INTRO
+========================================================= -->
 
-<div>
+<section class="intro">
 
-<h2>
+    <div class="intro-inner reveal">
 
-Representing
-Ideas That
-Matter.
+        <div>
 
-</h2>
+            <div class="section-label">
+                REPRESENTING IDEAS THAT MATTER
+            </div>
 
-</div>
+            <h2>
 
-<div>
+                From
 
-<p>
+                <span>
+                    ideas
+                </span>
 
-•Represented Old Batra Lemon as a Field Research & Brand Engagement Associate at the Avnesh National Innovation Exhibition, NIFTEM, conducting real-time consumer interaction, market research, and feedback analysis while engaging with visitors alongside leading FMCG brands including Nestlé, PepsiCo, and Tata.
+                to
 
-</p>
+                <br>
 
-</div>
+                real
+
+                <span>
+                    impact.
+                </span>
+
+            </h2>
+
+        </div>
+
+        <div class="intro-text">
+
+            Represented <strong>Old Batra Lemon</strong> as a
+            Field Research & Brand Engagement Associate at
+            the Avnesh National Innovation Exhibition,
+            NIFTEM.
+
+            <br><br>
+
+            The experience involved real-time consumer
+            interaction, market research and feedback
+            analysis while engaging with visitors alongside
+            leading FMCG brands.
+
+            <br><br>
+
+            That experience shaped how I approach technology:
+            not just building something impressive,
+            but building something that creates value.
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ===================== GALLERY ===================== -->
+
+<!-- =========================================================
+     03 — EXACTLY THREE PHOTOS
+========================================================= -->
 
 <section class="gallery">
 
-<!-- ==================================================
-     CHANGE IMAGE 2 HERE
-=================================================== -->
+    <div class="gallery-heading reveal">
 
-<img src="{{ url_for('static', filename='images/guide.png') }}" alt="innovation">
+        <div class="section-label">
+            THE EXPERIENCE
+        </div>
+
+        <h2>
+
+            Seen.
+
+            <span>
+                Experienced.
+            </span>
+
+        </h2>
+
+    </div>
 
 
-<!-- ==================================================
-     CHANGE IMAGE 3 HERE
-=================================================== -->
+    <div class="image-showcase">
 
-<img src="{{ url_for('static', filename='images/faculty.png') }}" alt="faculty">
+
+        <!-- =================================================
+             PHOTO 01 — GUIDE
+        ================================================== -->
+
+        <article class="photo-card guide-photo reveal">
+
+            <img
+                src="{{ url_for('static', filename='images/guide.png') }}"
+                alt="Ansh at innovation exhibition"
+                loading="lazy"
+            >
+
+            <div class="photo-number">
+                01
+            </div>
+
+            <div class="photo-content">
+
+                <small>
+                    INNOVATION EXHIBITION
+                </small>
+
+                <h3>
+                    Technology meets
+                    real-world interaction.
+                </h3>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PHOTO 02 — FACULTY
+        ================================================== -->
+
+        <article class="photo-card faculty-photo reveal">
+
+            <img
+                src="{{ url_for('static', filename='images/faculty.png') }}"
+                alt="Ansh with faculty"
+                loading="lazy"
+            >
+
+            <div class="photo-number">
+                02
+            </div>
+
+            <div class="photo-content">
+
+                <small>
+                    FACULTY
+                </small>
+
+                <h3>
+                    Learning beyond
+                    the classroom.
+                </h3>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PHOTO 03 — NATIONAL LEVEL
+        ================================================== -->
+
+        <article class="photo-card officer-photo reveal">
+
+            <img
+                src="{{ url_for('static', filename='images/intraction_with_officer.png') }}"
+                alt="Ansh national level interaction"
+                loading="lazy"
+            >
+
+            <div class="photo-number">
+                03
+            </div>
+
+            <div class="photo-content">
+
+                <small>
+                    NATIONAL LEVEL
+                </small>
+
+                <h3>
+                    Representing
+                    innovation.
+                </h3>
+
+            </div>
+
+        </article>
+
+
+    </div>
 
 </section>
 
-<!-- ===================== IMPACT ===================== -->
+
+<!-- =========================================================
+     IMPACT
+========================================================= -->
 
 <section class="impact">
 
-<div class="card">
+    <div class="impact-card reveal">
 
-<h2>01</h2>
+        <div class="impact-number">
+            01<span>.</span>
+        </div>
 
-<p>
+        <p>
+            NATIONAL LEVEL
+            REPRESENTATIVE
+        </p>
 
-National Level Exhibition Representative
+    </div>
 
-</p>
+    <div class="impact-card reveal">
 
-</div>
+        <div class="impact-number">
+            AI<span>.</span>
+        </div>
 
-<div class="card">
+        <p>
+            ARTIFICIAL INTELLIGENCE &
+            INTELLIGENT SYSTEMS
+        </p>
 
-<h2>AI</h2>
+    </div>
 
-<p>
+    <div class="impact-card reveal">
 
-Innovation & Intelligent Systems Showcase
+        <div class="impact-number">
+            240<span>+</span>
+        </div>
 
-</p>
+        <p>
+            PROFESSIONALS • FACULTY •
+            RESEARCHERS • VISITORS
+        </p>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="impact-card reveal">
 
-<h2>240+</h2>
+        <div class="impact-number">
+            100<span>%</span>
+        </div>
 
-<p>
+        <p>
+            LIVE DEMONSTRATION &
+            TECHNICAL PRESENTATION
+        </p>
 
-Industry Professionals • Faculty • Researchers • Students • Visitors
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>100%</h2>
-
-<p>
-
-Live Demonstration & Technical Presentation
-
-</p>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ===================== QUOTE ===================== -->
 
-<!-- ===================== QUOTE VIDEO ===================== -->
+<!-- =========================================================
+     VIDEO
+========================================================= -->
 
-<section class="quote">
+<section class="video-section">
 
-    <!-- Background Exhibition Video -->
-
-    <video autoplay muted loop playsinline>
+    <video
+        id="exhibitionVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+    >
 
         <source
             src="{{ url_for('static', filename='video/exhibition.mp4') }}"
             type="video/mp4"
         >
 
-        Your browser does not support the video tag.
-
     </video>
 
+    <div class="video-overlay"></div>
 
-    <!-- Text Above Video -->
+    <div class="video-content reveal">
 
-    <div class="quote-content">
+        <div class="video-label">
+            EXPERIENCE THE MOMENT
+        </div>
 
         <h2>
 
-            Introducing the First-Ever Carbonated Milk Drink
+            Innovation
+
+            <br>
+
+            <span>
+                in motion.
+            </span>
 
         </h2>
 
         <p>
-            "True innovation isn't measured by the complexity
-            of a project, but by the impact it creates when
-            shared with the world."
+
+            A glimpse into the national-level exhibition
+            where ideas, technology, people and
+            real-world interaction came together.
 
         </p>
 
-        <a href="{{ url_for('details') }}" class="btn">
+    </div>
 
-            Explore Portfolio
+    <div class="video-corner">
+        PLAYING • EXHIBITION
+    </div>
 
-        </a>
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section class="projects">
+
+    <div class="projects-header reveal">
+
+        <div>
+
+            <div class="section-label">
+                SELECTED WORK
+            </div>
+
+            <h2>
+
+                Built to
+
+                <span>
+                    solve.
+                </span>
+
+            </h2>
+
+        </div>
+
+        <p>
+
+            Machine learning, analytics and intelligent
+            systems designed around real problems.
+
+        </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+        <article class="project-card reveal">
+
+            <div class="project-content">
+
+                <div class="project-number">
+                    PROJECT 01 • MACHINE LEARNING
+                </div>
+
+                <div>
+
+                    <h3>
+                        Diamond
+                        <br>
+                        Price
+                        <br>
+                        Prediction
+                    </h3>
+
+                    <p>
+
+                        Machine-learning pipeline for predicting
+                        diamond prices through preprocessing,
+                        feature engineering, model training
+                        and deployment.
+
+                    </p>
+
+                    <a
+                        href="https://github.com/Anshgallery/Diamond_price_prediction_project"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-content">
+
+                <div class="project-number">
+                    PROJECT 02 • DATA ANALYTICS
+                </div>
+
+                <div>
+
+                    <h3>
+                        Churn
+                        <br>
+                        Pulse
+                    </h3>
+
+                    <p>
+
+                        Customer churn analysis and
+                        predictive insights using
+                        data-driven techniques.
+
+                    </p>
+
+                    <a
+                        href="https://github.com/Anshgallery/ChurnPulse_Project"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
 
     </div>
 
 </section>
 
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="cta-content reveal">
+
+        <div class="cta-label">
+            LET'S BUILD SOMETHING
+        </div>
+
+        <h2>
+
+            Let's create
+
+            <span>
+                what's next.
+            </span>
+
+        </h2>
+
+        <p>
+
+            AI projects, data problems, analytics,
+            internships or new ideas — let's turn
+            possibilities into something real.
+
+        </p>
+
+        <div class="cta-buttons">
+
+            <a
+                href="mailto:nextrgenansh@gmail.com"
+                class="cta-button mail"
+            >
+                nextrgenansh@gmail.com →
+            </a>
+
+            <a
+                href="tel:+919034637401"
+                class="cta-button call"
+            >
+                9034637401
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-© 2026 Ansh Wadhwa • AI & Data Science Engineer
+    <div class="footer-logo">
+        ANSH<span>.</span>
+    </div>
+
+    <div>
+        AI • DATA • INNOVATION • 2026
+    </div>
 
 </footer>
+
+
+<script>
+
+/* =========================================================
+   ANSH INTRO — EXACTLY 2 SECONDS
+========================================================= */
+
+const anshIntro =
+    document.getElementById("anshIntro");
+
+document.body.style.overflow = "hidden";
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document.body.style.overflowX = "hidden";
+        document.body.style.overflowY = "auto";
+
+        if(anshIntro){
+            anshIntro.remove();
+        }
+
+    }, 2100);
+
+});
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+const navbar =
+    document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    navbar.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+    );
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   HERO PARALLAX — LAPTOP ONLY
+========================================================= */
+
+const hero =
+    document.querySelector(".hero");
+
+const heroImage =
+    document.querySelector(".hero-image");
+
+if(hero && heroImage){
+
+    hero.addEventListener(
+        "mousemove",
+        event => {
+
+            if(window.innerWidth <= 900){
+                return;
+            }
+
+            const rect =
+                hero.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left)
+                / rect.width
+                - .5;
+
+            const y =
+                (event.clientY - rect.top)
+                / rect.height
+                - .5;
+
+            heroImage.style.transform =
+                `
+                scale(1.02)
+                translate(
+                    ${x * -8}px,
+                    ${y * -5}px
+                )
+                `;
+
+        }
+    );
+
+    hero.addEventListener(
+        "mouseleave",
+        () => {
+
+            heroImage.style.transform =
+                "scale(1.02)";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   VIDEO AUTOPLAY
+========================================================= */
+
+const video =
+    document.getElementById(
+        "exhibitionVideo"
+    );
+
+if(video){
+
+    video.muted = true;
+
+    const playVideo = () => {
+
+        video.play().catch(() => {});
+
+    };
+
+    playVideo();
+
+    document.addEventListener(
+        "touchstart",
+        playVideo,
+        {
+            once:true,
+            passive:true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RESPONSIVE HERO IMAGE
+========================================================= */
+
+function updateImagePosition(){
+
+    if(!heroImage) return;
+
+    if(window.innerWidth <= 430){
+
+        heroImage.style.objectPosition =
+            "58% center";
+
+    }
+
+    else if(window.innerWidth <= 700){
+
+        heroImage.style.objectPosition =
+            "56% center";
+
+    }
+
+    else{
+
+        heroImage.style.objectPosition =
+            "center 35%";
+
+    }
+
+}
+
+window.addEventListener(
+    "resize",
+    updateImagePosition
+);
+
+updateImagePosition();
+
+
+/* =========================================================
+   PHOTO INTERACTION
+   CLICK = SUBTLE ZOOM
+========================================================= */
+
+const photoCards =
+    document.querySelectorAll(".photo-card");
+
+photoCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        photoCards.forEach(item => {
+
+            item.classList.remove(
+                "active-photo"
+            );
+
+        });
+
+        card.classList.add(
+            "active-photo"
+        );
+
+    });
+
+});
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+document.documentElement.style.overflowX =
+    "hidden";
+
+document.body.style.overflowX =
+    "hidden";
+
+</script>
 
 </body>
 
