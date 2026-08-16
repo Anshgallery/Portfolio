@@ -1237,15 +1237,35 @@ textarea{
 
     <div class="nav-links">
 
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
-        <a href="/skills">Skills</a>
-
-        <a href="/contact" class="nav-contact">
-            Contact
+        <a href="{{ url_for('details') }}">
+            About
         </a>
 
+        <a href="{{ url_for('certification') }}">
+            Certificates
+        </a>
+
+        <a href="{{ url_for('projects') }}">
+            Projects
+        </a>
+
+        <a
+            href="{{ url_for('static', filename='assets/Ansh_Resume_latest.pdf') }}"
+            target="_blank"
+        >
+            Resume
+        </a>
+
+        <a href="{{ url_for('experence') }}">
+            Experience
+        </a>
+
+        <a
+            href="/contact"
+            class="nav-contact"
+        >
+            Contact →
+        </a>
     </div>
 
 </nav>
